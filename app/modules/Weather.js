@@ -24,55 +24,66 @@ class Weather {
         document.querySelector("#temp").innerHTML = Math.round(temp) + "&deg;";
 
         //Putting each day on the page.
-        let dayDiv = document.createElement("div");
-        dayDiv.classList.add("dayDiv");
 
-        let date = new Date(response.list[0].dt * 1000);
-        let dayOfWeek = date.getDay();
+        response.list.forEach((day) => {
+          let dayDiv = document.createElement("div");
+          dayDiv.classList.add("dayDiv");
 
-        if (dayOfWeek === 0) {
-          dayOfWeek = "Sunday";
-        }
-        else if (dayOfWeek === 1) {
-          dayOfWeek = "Monday";
-        }
-        else if (dayOfWeek === 2) {
-          dayOfWeek = "Tuesday";
-        }
-        else if (dayOfWeek === 3) {
-          dayOfWeek = "Wednesday";
-        }
-        else if (dayOfWeek === 4) {
-          dayOfWeek = "Thursday";
-        }
-        else if (dayOfWeek === 5) {
-          dayOfWeek = "Friday";
-        }
-        else if (dayOfWeek === 6) {
-          dayOfWeek = "Saturday";
-        }
+          let date = new Date(day.dt * 1000);
+          let dayOfWeek = date.getDay();
 
-        let dayOfWeekDiv = document.createElement("div");
-        dayOfWeekDiv.classList.add("day");
-        dayOfWeekDiv.innerHTML = dayOfWeek;
-        dayDiv.appendChild(dayOfWeekDiv);
+          if (dayOfWeek === 0) {
+            dayOfWeek = "Sunday";
+          }
+          else if (dayOfWeek === 1) {
+            dayOfWeek = "Monday";
+          }
+          else if (dayOfWeek === 2) {
+            dayOfWeek = "Tuesday";
+          }
+          else if (dayOfWeek === 3) {
+            dayOfWeek = "Wednesday";
+          }
+          else if (dayOfWeek === 4) {
+            dayOfWeek = "Thursday";
+          }
+          else if (dayOfWeek === 5) {
+            dayOfWeek = "Friday";
+          }
+          else if (dayOfWeek === 6) {
+            dayOfWeek = "Saturday";
+          }
 
-        let max = response.list[0].temp.max;
-        let maxDiv = document.createElement("div");
-        maxDiv.classList.add("maxDiv");
-        maxDiv.innerHTML = Math.round(max);
-        dayDiv.appendChild(maxDiv);
+          let dayOfWeekDiv = document.createElement("div");
+          dayOfWeekDiv.classList.add("day");
+          dayOfWeekDiv.innerHTML = dayOfWeek;
+          dayDiv.appendChild(dayOfWeekDiv);
 
-        let min = response.list[0].temp.min;
-        let minDiv = document.createElement("div");
-        minDiv.classList.add("minDiv");
-        minDiv.innerHTML = Math.round(min);
-        dayDiv.appendChild(minDiv);
+          let icon = `http://openweathermap.org/img/w/${day.weather[0].icon}.png`;
+          let iconDiv = document.createElement("img");
+          iconDiv.src = icon;
+          dayDiv.appendChild(iconDiv);
 
-        body.appendChild(dayDiv);
+          let max = day.temp.max;
+          let maxDiv = document.createElement("div");
+          maxDiv.classList.add("maxDiv");
+          maxDiv.innerHTML = Math.round(max);
+          dayDiv.appendChild(maxDiv);
 
-        let icon = `http://openweathermap.org/img/w/${response.list[0].weather[0].icon}.png`;
-        //image goes here.
+          let min = day.temp.min;
+          let minDiv = document.createElement("div");
+          minDiv.classList.add("minDiv");
+          minDiv.innerHTML = Math.round(min);
+          dayDiv.appendChild(minDiv);
+
+          body.appendChild(dayDiv);
+        })
+
+
+
+        // body.appendChild(imgDiv);
+
+
 
       })
   }

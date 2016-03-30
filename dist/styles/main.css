@@ -32,6 +32,8 @@ h2 {
   font-family: Helvetica;
   font-weight: lighter;
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
   color: white; }
 
 .dayDiv {
@@ -51,7 +53,7 @@ h2 {
 .minDiv {
   float: right;
   margin-right: 15px;
-  color: white; }
+  color: #6FB6E5; }
 
 .day {
   float: left;
