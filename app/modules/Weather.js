@@ -21,15 +21,17 @@ class Weather {
         document.querySelector("#description").innerHTML = response.list[0].weather[0].description;
 
         let temp = response.list[0].temp.day;
-        document.querySelector("#temp").innerHTML = Math.round(temp);
+        document.querySelector("#temp").innerHTML = Math.round(temp) + "&deg;";
 
         let max = response.list[0].temp.max;
         let maxDiv = document.createElement("div");
+        maxDiv.classList.add("maxDiv");
         maxDiv.innerHTML = Math.round(max);
         body.appendChild(maxDiv);
 
         let min = response.list[0].temp.min;
         let minDiv = document.createElement("div");
+        minDiv.classList.add("minDiv");
         minDiv.innerHTML = Math.round(min);
         body.appendChild(minDiv);
 
@@ -59,6 +61,7 @@ class Weather {
         }
 
         let dayOfWeekDiv = document.createElement("div");
+        dayOfWeekDiv.classList.add("day");
         dayOfWeekDiv.innerHTML = dayOfWeek;
         body.appendChild(dayOfWeekDiv);
 
