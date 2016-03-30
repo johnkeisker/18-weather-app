@@ -5,14 +5,16 @@ h1 {
   font-weight: normal;
   color: white;
   margin-top: 60px;
+  margin-bottom: 0px;
 }
 h2 {
   font-size: 15px;
   font-family: Helvetica;
-  font-weight: lighter;
+  font-weight:400;
   text-align: center;
   text-transform: capitalize;
   color: white;
+  margin-top: 3px;
 }
 #temp {
   font-size: 90px;
@@ -21,15 +23,30 @@ h2 {
   text-align: center;
   color: white;
 }
+
+.dayDiv {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
+
+}
 .maxDiv {
   float: right;
+  margin-right: 5px;
+  padding-left: 200px;
   color: white;
 }
 .minDiv {
   float: right;
+  margin-right: 15px;
   color: white;
 }
 .day {
   float: left;
   color: white;
+  margin-left: 10px;
 }

@@ -23,17 +23,9 @@ class Weather {
         let temp = response.list[0].temp.day;
         document.querySelector("#temp").innerHTML = Math.round(temp) + "&deg;";
 
-        let max = response.list[0].temp.max;
-        let maxDiv = document.createElement("div");
-        maxDiv.classList.add("maxDiv");
-        maxDiv.innerHTML = Math.round(max);
-        body.appendChild(maxDiv);
-
-        let min = response.list[0].temp.min;
-        let minDiv = document.createElement("div");
-        minDiv.classList.add("minDiv");
-        minDiv.innerHTML = Math.round(min);
-        body.appendChild(minDiv);
+        //Putting each day on the page.
+        let dayDiv = document.createElement("div");
+        dayDiv.classList.add("dayDiv");
 
         let date = new Date(response.list[0].dt * 1000);
         let dayOfWeek = date.getDay();
@@ -63,7 +55,21 @@ class Weather {
         let dayOfWeekDiv = document.createElement("div");
         dayOfWeekDiv.classList.add("day");
         dayOfWeekDiv.innerHTML = dayOfWeek;
-        body.appendChild(dayOfWeekDiv);
+        dayDiv.appendChild(dayOfWeekDiv);
+
+        let max = response.list[0].temp.max;
+        let maxDiv = document.createElement("div");
+        maxDiv.classList.add("maxDiv");
+        maxDiv.innerHTML = Math.round(max);
+        dayDiv.appendChild(maxDiv);
+
+        let min = response.list[0].temp.min;
+        let minDiv = document.createElement("div");
+        minDiv.classList.add("minDiv");
+        minDiv.innerHTML = Math.round(min);
+        dayDiv.appendChild(minDiv);
+
+        body.appendChild(dayDiv);
 
         let icon = `http://openweathermap.org/img/w/${response.list[0].weather[0].icon}.png`;
         //image goes here.
