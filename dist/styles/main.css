@@ -3,7 +3,7 @@ html {
 
 body {
   background-color: #3498DB;
-  height: 600px;
+  height: 640px;
   width: 400px;
   border: 5px solid #484645;
   margin-top: 50px;
@@ -47,7 +47,7 @@ h2 {
 .maxDiv {
   float: right;
   margin-right: 5px;
-  padding-left: 200px;
+  padding-left: 100px;
   color: white; }
 
 .minDiv {
@@ -56,6 +56,10 @@ h2 {
   color: #6FB6E5; }
 
 .day {
+  width: 160px;
   float: left;
   color: white;
   margin-left: 10px; }
+
+.iconDiv {
+  padding-left: 200px; }
